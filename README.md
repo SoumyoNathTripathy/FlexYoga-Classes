@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+# Yoga Class Admission Form
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Yoga Class Admission Form! This application allows users to enroll in our monthly yoga classes by filling out a simple form.
 
-## Available Scripts
+## Live Deployment
+Visit our live deployment: [Yoga Class Admission Form](https://yogaform.vercel.app/)
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Usage
+1. **Fill out the Form**: Input your details in the form fields.
+2. **Batch Selection**: Choose your preferred batch timing from the options provided.
+3. **Payment**: Payment of 500 INR is required every month.
+4. **Submission**: Accept the terms of service and submit the form.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features:
 
-### `npm test`
+- User registration with age validation (18-65)
+- ⏰ Selection of preferred batch timing (6-7AM, 7-8AM, 8-9AM, 5-6PM)
+- Simulated payment integration (through mock function)
+- Real-time user data and payment status updates
+- Deployed on Vercel
+## Technologies:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-  ⚛️ Frontend: React and Create React App
+-  ⚡️ Backend: Node.js and Express
+Database: PostgreSQL (hosted on Heroku)
+## Problem Solving:
 
-### `npm run build`
+### This project tackled various challenges:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1.Designing a user-friendly and efficient data capture form in React.
+2. Building a REST API on Node.js to handle user data, validation, and simulated payment integration.
+3. implementing a PostgreSQL database schema to store user information, batch preferences, and payment status.
+4. Deploying the application on Vercel for accessibility and scalability.
+## Database Design (ER Diagram and SQLs):
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The ER diagram consists of three tables:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Users:
 
-### `npm run eject`
+id (primary key)
+name
+email (unique)
+age (INT NOT NULL CHECK(age BETWEEN 18 AND 65))
+contact
+Batches:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+id (primary key)
+timing (unique)
+Enrollments:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+id (primary key)
+user_id (foreign key to Users)
+batch_id (foreign key to Batches)
+payment_status (enum: Pending, Success, Failed)
+payment_date
+Sample SQLs:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+SQL
+CREATE TABLE Users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE,
+  age INT NOT NULL CHECK(age BETWEEN 18 AND 65),
+  contact VARCHAR(20),
+  ...
+);
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+CREATE TABLE Batches (
+  id SERIAL PRIMARY KEY,
+  timing VARCHAR(255) NOT NULL UNIQUE,
+  ...
+);
 
-## Learn More
+CREATE TABLE Enrollments (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES Users(id),
+  batch_id INTEGER REFERENCES Batches(id),
+  payment_status ENUM('PENDING', 'SUCCESS', 'FAILED'),
+  payment_date DATE,
+  CONSTRAINT active_enrollment UNIQUE (user_id, active)
+);
+Use code with caution. Learn more
+Code Architecture:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Front-End:
+Form component for user data input
+Batch selection component with availability check
+API communication handler for data submission
+Mock payment integration function
+Back-End:
+API routes for data validation and processing
+Database interaction with PostgreSQL hosted on Heroku
+Mock payment function integration
+Deployment:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The application is deployed on Vercel, accessible at https://yogaform.vercel.app/
 
-### Code Splitting
+Readme:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This readme file provides a comprehensive overview of the project, including:
 
-### Analyzing the Bundle Size
+Project overview and motivation
+Technologies used
+Installation and setup instructions (for local development)
+Running the application locally
+API documentation
+ER diagram and database details
+Assumptions and limitations
+Deployment guide
+Contribution guidelines
+Getting Started:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+(Optional) Set up local development environment with React and Node.js
+Clone the Github repository
+(Optional) Run the application locally (details in readme)
+Access the deployed application at https://yogaform.vercel.app/ ‍♀️
+Please note: This project is a work in progress and can be further improved. Contributions and feedback are welcome!
 
-### Making a Progressive Web App
+Feedback:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+I hope this readme provides a detailed explanation of the project. Please let me know if you have any further questions or suggestions.
 
-### Advanced Configuration
+Code format:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This readme is written in Markdown format, which makes it easy to read and understand on Github.
 
-### Deployment
+Remember:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This is just a sample readme. You can customize it to fit your specific project and add more details as needed. Good luck with your project!
 
-### `npm run build` fails to minify
+Let me know if you have any other questions or need further assistance. I'm always happy to help!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
