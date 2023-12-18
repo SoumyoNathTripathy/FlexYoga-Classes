@@ -30,9 +30,13 @@ Database: PostgreSQL (hosted on Heroku)
 ### This project tackled various challenges:
 
 1.Designing a user-friendly and efficient data capture form in React.
+
 2. Building a REST API on Node.js to handle user data, validation, and simulated payment integration.
+  
 3. implementing a PostgreSQL database schema to store user information, batch preferences, and payment status.
+ 
 4. Deploying the application on Vercel for accessibility and scalability.
+ 
 ## Database Design (ER Diagram and SQLs):
 
 The ER diagram consists of three tables:
