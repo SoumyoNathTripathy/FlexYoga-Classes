@@ -11,8 +11,7 @@
 
 # Yoga Class Admission Form
 
-Welcome to the Yoga Class Admission Form! This application allows users to enroll in our monthly yoga classes by filling out a simple form.
-
+An admission system for monthly yoga classes, ensuring smooth enrollment, fee payments, and flexible batch selections for participants. The system caters to individuals aged 18-65, allowing them to join classes, pay fees on a monthly basis, and switch between batches each month. The project integrates React for the front-end, interacts with a REST API for data handling, and stores information in a database.
 ## Live Deployment
 Visit our live deployment: [Yoga Class Admission Form](https://yogaform.vercel.app/)
 
