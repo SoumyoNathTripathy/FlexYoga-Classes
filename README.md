@@ -149,6 +149,5 @@ cd frontend npm start
 
 Please replace placeholders like \`your-username\` \`link/to/your/er-diagram.png\` and others with the relevant details specific to your project. You can copy this Markdown code and save it as the \`README.md\` file in your GitHub repository.
 
-<h2>🛡️ License:</h2>
-
-This project is licensed under the MIT License
+## Owner:
+Soumyo Nath Tripathy
