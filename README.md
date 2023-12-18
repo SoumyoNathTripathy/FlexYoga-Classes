@@ -35,7 +35,7 @@ Visit our live deployment: [Yoga Class Admission Form](https://yogaform.vercel.a
 
 -  ⚛ Frontend: React and Create React App
 -  ⚡ Backend: Node.js and Express
-Database: MongoDB (hosted on Vercel)
+-  ⚛  Database: MongoDB (hosted on Vercel)
 ## Problem Solving:
 
 ### This project tackled various challenges:
